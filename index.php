@@ -13,17 +13,14 @@
 
 get_header();
 
-do_action( 'inp_mc_before_content' );
-
 if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post();
-		get_template_part( 'parts/content', get_post_format() );
+		var_dump( $post );
+		get_template_part( 'parts/content', get_post_type() );
 	}
 } else {
-	get_template_part( 'parts/no-results', 'index' );
+	get_template_part( 'parts/content', 'no-results' );
 }
-
-do_action( 'inp_mc_before_content' );
 
 get_footer();

@@ -1,3 +1,4 @@
+<?php use MountainConqueror\Templating; ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]--> 
 <!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]--> 
@@ -25,13 +26,13 @@
 		<?php if ( is_front_page() && is_home() ) { ?>
 		<h1 class="site-title">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-				<img src="<?php echo esc_url( inp_mc_get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+				<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
 			</a>
 		</h1>
 		<?php } else { ?>
 		<p class="site-title">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-				<img src="<?php echo esc_url( inp_mc_get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+				<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
 			</a>
 		</p>
 		<?php } ?>
