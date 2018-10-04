@@ -16,7 +16,12 @@
 <?php do_action( 'inp_mc_before_page' ); ?>
 
 <div id="page" class="hfeed">
+
+	<?php do_action( 'inp_mc_before_masthead' ); ?>
+
 	<header id="masthead" role="banner">
+		<?php do_action( 'inp_mc_start_masthead' ); ?>
+
 		<?php if ( is_front_page() && is_home() ) { ?>
 		<h1 class="site-title">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
@@ -42,6 +47,11 @@
 			}
 			?>
 		</nav>
+
+		<?php do_action( 'inp_mc_end_masthead' ); ?>
 	</header>
 
+	<?php do_action( 'inp_mc_after_masthead' ); ?>
+
 	<main id="content" role="main">
+		<?php do_action( 'inp_mc_start_content' ); ?>
