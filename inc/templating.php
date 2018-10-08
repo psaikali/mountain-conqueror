@@ -1,7 +1,8 @@
 <?php
 
 namespace MountainConqueror\Templating;
-use MountainConqueror\Helpers;
+
+use MountainConqueror\Options;
 
 if ( ! function_exists( __NAMESPACE__ . '\get_theme_image' ) ) {
 	/**
@@ -142,7 +143,7 @@ if ( ! function_exists( __NAMESPACE__ . '\display_copyright_text' ) ) {
 	function display_copyright_text() {
 
 		// Grab our customizer settings.
-		$copyright_text = get_theme_mod( 'inp_mc_copyright_text' );
+		$copyright_text = Options\get_option( 'copyright_text' );
 
 		// Stop if there's nothing to display.
 		if ( ! $copyright_text ) {
@@ -162,7 +163,7 @@ if ( ! function_exists( __NAMESPACE__ . '\display_social_network_links' ) ) {
 	 * Display the social links saved in the customizer.
 	 */
 	function display_social_network_links() {
-		$social_networks = [ 'facebook', 'instagram', 'twitter', 'vimeo', 'youtube' ];
+		$social_networks = [ 'instagram', 'twitter', 'vimeo', 'youtube' ];
 
 		?>
 		<ul class="social-icons">
@@ -170,16 +171,17 @@ if ( ! function_exists( __NAMESPACE__ . '\display_social_network_links' ) ) {
 
 			<?php
 			foreach ( $social_networks as $network ) {
-				$network_url = get_theme_mod( 'inp_mc_' . $network . '_link' );
+				$network_url = Options\get_option( "social_url_{$network}" );
 
 				if ( ! empty( $network_url ) ) {
 				?>
 					<li class="social-icon <?php echo esc_attr( $network ); ?>">
-						<a href="<?php echo esc_url( $network_url ); ?>">
+						<a href="<?php echo esc_url( $network_url ); ?>" rel="nofollow" target="_blank">
 							<i class="socicon socicon-<?php echo $network; ?>"></i>
 							<span class="screen-reader-text">
 							<?php
-								echo /* translators: the social network name */ sprintf( esc_html_e( 'Link to %s', 'inp-mc' ), ucwords( esc_html( $network ) ) ); // WPCS: XSS OK.
+							/* translators: the social network name */
+							printf( esc_html__( 'Link to %s', 'inp-mc' ), ucwords( esc_html( $network ) ) ); // WPCS: XSS OK.
 							?>
 							</span>
 						</a>
