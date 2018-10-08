@@ -12,7 +12,7 @@ add_filter( 'excerpt_length', __NAMESPACE__ . '\excerpt_length' );
 
 /**
  * Inject Event post data in $post to get direct access
- * 
+ *
  * @param $post WP_Post The post object.
  */
 function inject_event_post_data( $post ) {
@@ -21,3 +21,33 @@ function inject_event_post_data( $post ) {
 	}
 }
 add_action( 'the_post', __NAMESPACE__ . '\inject_event_post_data' );
+
+/**
+ * Add some custom classes to article.post
+ *
+ * @param array $classes The post classes.
+ * @return array $classes
+ */
+function custom_post_classes( $classes ) {
+	if ( has_post_thumbnail() ) {
+		$classes[] = 'has-featured-image';
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', __NAMESPACE__ . '\custom_post_classes' );
+
+/**
+ * Check if we are dealing with a valid $post event
+ *
+ * @param boolean $valid If the analysed post is currently considered an event.
+ * @param WP_Post $post The current post being looped.
+ */
+function is_a_valid_event( $valid, $post ) {
+	if ( isset( $post->event ) && is_a( $post->event, 'Inpsyde\Events\Model\Event' ) ) {
+		$valid = true;
+	}
+
+	return $valid;
+}
+add_filter( 'inp_mc_post_is_a_valid_event', __NAMESPACE__ . '\is_a_valid_event', 10, 2 );

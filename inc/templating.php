@@ -32,7 +32,7 @@ if ( ! function_exists( __NAMESPACE__ . '\display_event_footer' ) ) {
 		global $post;
 
 		// Hook on 'inp_mc_post_is_a_valid_event' filter to modify this boolean.
-		if ( ! inp_mc_is_a_valid_event( $post ) ) {
+		if ( ! apply_filters( 'inp_mc_post_is_a_valid_event', false, $post ) ) {
 			return;
 		}
 
