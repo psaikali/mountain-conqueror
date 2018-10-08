@@ -2,6 +2,8 @@
 
 namespace MountainConqueror\Hooks;
 
+use MountainConqueror\Options;
+
 /**
  * Change the excerpt length
  */
@@ -52,8 +54,11 @@ function is_a_valid_event( $valid, $post ) {
 }
 add_filter( 'inp_mc_post_is_a_valid_event', __NAMESPACE__ . '\is_a_valid_event', 10, 2 );
 
+/**
+ * Display top quote before content
+ */
 function display_header_top_quote() {
-	$quote = \carbon_get_theme_option( 'header_quote' );
+	$quote = Options\get_option( 'header_quote' );
 
 	if ( strlen( trim( $quote ) ) > 0 ) {
 		?>

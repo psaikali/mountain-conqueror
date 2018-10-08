@@ -5,7 +5,6 @@ namespace MountainConqueror\Options;
 use Carbon_Fields\Carbon_Fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
-use MountainConqueror\Helpers;
 
 /**
  * Boot the Carbon Fields library.
@@ -110,6 +109,7 @@ function options_social_tab_theme_fields() {
 	array_walk(
 		$networks,
 		function ( $network ) use ( &$fields ) {
+			/* Translators: "{social network name} URL" */
 			$title = sprintf( __( '%1$s URL', 'inp-mc' ), ucfirst( $network ) );
 			$fields[] = Field::make( 'text', "social_url_{$network}", $title )
 						->set_required()
@@ -171,3 +171,14 @@ function options_custom_validations( $save, $value, $field ) {
 	return $save;
 }
 add_filter( 'carbon_fields_should_save_field_value', __NAMESPACE__ . '\options_custom_validations', 10, 3 );
+
+/**
+ * Proxy function to get a specific option
+ *
+ * @param string $option The option ID
+ * @param string $container_id The container ID
+ * @return mixed The option value.
+ */
+function get_option( $option, $container_id = '' ) {
+	return \carbon_get_theme_option( $option, $container_id );
+}
