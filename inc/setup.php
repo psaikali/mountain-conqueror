@@ -108,7 +108,7 @@ function scripts() {
 	 */
 	global $is_IE;
 
-	$web_font_url = apply_filters( 'inp_mc_web_font_url', '//fonts.googleapis.com/css?family=Sanchez:400,400i|Teko:500' );
+	$web_font_url  = apply_filters( 'inp_mc_web_font_url', '//fonts.googleapis.com/css?family=Sanchez:400,400i|Teko:500' );
 	$icon_font_url = apply_filters( 'inp_mc_icon_font_url', '//fonts.googleapis.com/css?family=Sanchez:400,400i|Teko:500' );
 
 	// Fonts stylesheets.
