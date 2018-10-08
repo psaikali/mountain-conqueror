@@ -23,11 +23,6 @@ function include_all_files() {
 		'inc/setup.php',
 
 		/**
-		 * Enqueue CSS & JS assets
-		 */
-		'inc/assets.php',
-
-		/**
 		 * Modify WP logic via hooks
 		 */
 		'inc/hooks.php',
