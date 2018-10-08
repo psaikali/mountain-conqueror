@@ -126,26 +126,19 @@ function scripts() {
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\scripts' );
 
 /**
- * Enqueue scripts for the customizer.
+ * Load admin JS scripts
  *
- * @author Corey Collins
+ * @param string The current admin page slug we're visiting.
+ * @return void
  */
-function customizer_scripts() {
-	/**
-	 * If WP is in script debug, or we pass ?script_debug in a URL - set debug to true.
-	 */
-	$debug = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) || ( isset( $_GET['script_debug'] ) ) ? true : false;
-
-	/**
-	 * If we are debugging the site, use a unique version every page load so as to ensure no cache issues.
-	 */
+function admin_scripts( $hook ) {
 	$version = '1.0.0';
 
 	/**
-	 * Should we load minified files?
+	 * Load /admin/options.js JS file in order to add a few custom validations.
 	 */
-	$suffix = ( true === $debug ) ? '' : '.min';
-
-	wp_enqueue_script( 'inp_mc_customizer', get_template_directory_uri() . '/assets/scripts/customizer' . $suffix . '.js', [ 'jquery' ], $version, true );
+	if ( 'toplevel_page_inp-mc-options' === $hook ) {
+		wp_enqueue_script( 'inp-mc-admin-scripts', get_template_directory_uri() . '/assets/scripts/admin/options.js', [ 'jquery' ], $version, true );
+	}
 }
-add_action( 'customize_controls_enqueue_scripts', __NAMESPACE__ . '\customizer_scripts' );
+add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_scripts' );

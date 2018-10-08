@@ -2,6 +2,8 @@
 
 namespace MountainConqueror;
 
+require_once get_template_directory() . '/vendor/autoload.php';
+
 /**
  * Includes all files.
  *
@@ -21,6 +23,11 @@ function include_all_files() {
 		 * Setup theme entities (menus, widgets, supports...)
 		 */
 		'inc/setup.php',
+
+		/**
+		 * Theme options (mainly for footer)
+		 */
+		'inc/options.php',
 
 		/**
 		 * Modify WP logic via hooks

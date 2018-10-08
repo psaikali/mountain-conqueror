@@ -51,3 +51,16 @@ function is_a_valid_event( $valid, $post ) {
 	return $valid;
 }
 add_filter( 'inp_mc_post_is_a_valid_event', __NAMESPACE__ . '\is_a_valid_event', 10, 2 );
+
+function display_header_top_quote() {
+	$quote = \carbon_get_theme_option( 'header_quote' );
+
+	if ( strlen( trim( $quote ) ) > 0 ) {
+		?>
+		<aside class="header-top-quote">
+			<?php echo apply_filters( 'the_content', wp_kses_post( $quote ) ); ?>
+		</aside>
+		<?php
+	}
+}
+add_action( 'inp_mc_start_content', __NAMESPACE__ . '\display_header_top_quote' );
