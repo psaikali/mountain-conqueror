@@ -1,0 +1,5 @@
+footer#footer {
+	$footer_blue: darken( $blue, 17.5% );
+	background: transparentize( $footer_blue, .1 );
+	color: #fff;
+}

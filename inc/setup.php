@@ -109,14 +109,14 @@ function scripts() {
 	global $is_IE;
 
 	$web_font_url  = apply_filters( 'inp_mc_web_font_url', '//fonts.googleapis.com/css?family=Sanchez:400,400i|Teko:500' );
-	$icon_font_url = apply_filters( 'inp_mc_icon_font_url', '//fonts.googleapis.com/css?family=Sanchez:400,400i|Teko:500' );
+	$icon_font_url = apply_filters( 'inp_mc_icon_font_url', '//d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?9ukd8d' );
 
 	// Fonts stylesheets.
 	wp_enqueue_style( 'inp-mc-web-font', $web_font_url, [], $version );
 	wp_enqueue_style( 'inp-mc-icon-font', $icon_font_url, [], $version );
 
 	// Theme stylesheets & scripts.
-	wp_enqueue_style( 'inp-mc-style', get_stylesheet_directory_uri() . '/assets/styles/style' . $suffix . '.css', [], $version );
+	wp_enqueue_style( 'inp-mc-style', get_stylesheet_directory_uri() . '/style' . $suffix . '.css', [], $version );
 	wp_enqueue_script( 'inp-mc-scripts', get_template_directory_uri() . '/assets/scripts/project' . $suffix . '.js', [ 'jquery' ], $version, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

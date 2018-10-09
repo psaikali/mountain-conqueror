@@ -223,7 +223,7 @@ gulp.task( 'spritesmith', () =>
  * https://www.npmjs.com/package/gulp-sourcemaps
  */
 gulp.task( 'concat', () =>
-	gulp.src( paths.concats_cripts )
+	gulp.src( paths.concat_scripts )
 
 		// Deal with errors.
 		.pipe( plumber(

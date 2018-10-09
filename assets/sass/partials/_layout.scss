@@ -1,0 +1,56 @@
+$container_width: 2300;
+$header_width   : 500;
+$content_width  : 1700;
+
+.container {
+	max-width: $container_width*1px;
+	margin: 0 auto;
+	width: 95%;
+
+	@include resp(medium-up) {
+		width:90%;
+	}
+
+	@include resp(large-up) {
+		width:80%;
+	}
+}
+
+section.site-content {
+	@extend .clearfix;
+}
+
+/**
+ * The header, which is actually a left sidebar on this site.
+ * Contains logo and main navigation.
+ */
+header#masthead {
+	@include resp(medium-up) {
+		width: ( ( $header_width * 100 ) / $container_width ) * 1%;
+		float: left;
+	}
+}
+
+/**
+ * The content section on the right part of the site.
+ */
+main#content {
+	@include resp(medium-up) {
+		width: ( ( $content_width * 100 ) / $container_width ) * 1%;
+		margin-left: ( ( ( $container_width - $content_width - $header_width ) * 100 ) / $container_width ) * 1%;
+		float: right;
+	}	
+}
+
+/**
+ * The footer, always positionned at the bottom of the viewport.
+ */
+footer#footer {
+	@include resp(medium-up) {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index:100;
+	}
+}
