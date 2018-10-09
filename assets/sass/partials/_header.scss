@@ -6,16 +6,21 @@ header#masthead {
 	.site-title {
 		margin: 6vw auto;
 		max-width:70%;
-		
+
 		@include resp(medium-up) {
-			max-width: 100%;
-			margin: 2rem auto 6vh;
+			max-width: 90%;
+			// Sizing is done at the end of the file, because height should be synced with aside.header-top-quote
 
 			a {
 				&:hover {
 					opacity: .6;
 				}
 			}
+		}
+
+		p, h1 {
+			width: 100%;
+			margin: 0;
 		}
 	}
 
@@ -44,8 +49,10 @@ header#masthead {
 					text-transform: uppercase;
 					position: relative;
 					overflow: hidden;
+				}
 
-					&:hover {
+				&:hover, &:focus, &:focus-within {
+					> a {
 						text-decoration: none;
 						background: $blue;
 					}
@@ -62,9 +69,13 @@ header#masthead {
 				&.menu-item-has-children {
 					position: relative;
 
-					&:hover {
+					&:hover, &:focus, &:focus-within {
 						> ul.sub-menu {
-							display: block;
+							visibility: visible; /* shows sub-menu */
+							opacity: 1;
+							z-index: 1;
+							transform: translateY(0%);
+							transition-delay: 0s, 0s, 0.2s;
 						}
 					}
 				}
@@ -75,10 +86,14 @@ header#masthead {
 					left:100%;
 					top:0;
 					width: 10em;
-					background: transparentize( $dark_blue, .1 );
-					display: none;
+					background: transparentize( $blue, .1 );
 					padding-top:.25rem;
 					padding-bottom:.25rem;
+					visibility: hidden;
+					opacity: 0;
+					transform: translateX(-2rem);
+					z-index: -1;
+					transition: all 0.2s ease-in-out 0s, visibility 0s linear 0.2s, z-index 0s linear 0.01s;
 					
 					li {
 						display: block;
@@ -94,5 +109,28 @@ header#masthead {
 				}
 			}
 		}
+	}
+}
+
+/**
+ * Logo & "Top content quote" share same height/margin
+ * for better alignments
+ */
+aside.header-top-quote, header#masthead .site-title {
+	@include resp(medium-up) {
+		display: flex;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+		margin: 2.5vh auto 5vh;
+		height: 25vh;
+		min-height: 12.5rem;
+	}
+
+	// Avoid use margin-bottom when we have a weird portrait-ratio viewport
+	@media screen and (max-aspect-ratio: 16/9) and (min-width: #{$medium}) {
+		margin-bottom: 2.5vh;
+		height: 16vh;
+		//min-height: 12.5rem;
 	}
 }

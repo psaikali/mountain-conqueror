@@ -3,6 +3,62 @@
  * containing copyright & social networks & secondary navigation.
  */
 footer#footer {
-	background: transparentize( $dark_blue, .1 );
+	background: transparentize( $dark_blue, .125 );
 	color: #fff;
+	text-align: center;
+	padding: 1.5rem 1rem;
+	font-size: .85rem;
+
+	a {
+		color:#fff;
+	}
+
+	section.footer-data {
+		div.copyright, nav.social, nav.utility-navigation {
+			display: inline-block;
+			margin: 0 .75rem;
+		}
+
+		div.copyright {
+			margin-left: 0;
+		}
+
+		nav.social {
+			ul {
+				@extend %list-inline;
+
+				li {
+					&.title {
+						margin-right: .5em;
+					}
+
+					a {
+						display: inline-block;
+						padding:0 .175em;
+
+						&:hover {
+							opacity: .625;
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+
+		nav.utility-navigation {
+			margin-right: 0;
+
+			ul {
+				@extend %list-inline;
+
+				li {
+					margin-right: .375em;
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
 }

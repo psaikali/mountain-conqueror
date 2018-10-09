@@ -35,10 +35,13 @@ header#masthead {
  * The content section on the right part of the site.
  */
 main#content {
+	padding-bottom: 2.5rem;
+
 	@include resp(medium-up) {
 		width: ( ( $content_width * 100 ) / $container_width ) * 1%;
 		margin-left: ( ( ( $container_width - $content_width - $header_width ) * 100 ) / $container_width ) * 1%;
 		float: right;
+		padding-bottom: 7.5rem;
 	}	
 }
 

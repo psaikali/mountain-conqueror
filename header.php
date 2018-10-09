@@ -20,19 +20,21 @@
 	<header id="masthead" role="banner">
 		<?php do_action( 'inp_mc_start_masthead' ); ?>
 
-		<?php if ( is_front_page() && is_home() ) { ?>
-		<h1 class="site-title">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-				<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
-			</a>
-		</h1>
-		<?php } else { ?>
-		<p class="site-title">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-				<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
-			</a>
-		</p>
-		<?php } ?>
+		<div class="site-title">
+			<?php if ( is_front_page() && is_home() ) { ?>
+			<h1>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+					<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+				</a>
+			</h1>
+			<?php } else { ?>
+			<p>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+					<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+				</a>
+			</p>
+			<?php } ?>
+		</div>
 
 		<nav class="main-navigation">
 			<?php

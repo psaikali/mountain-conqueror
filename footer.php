@@ -9,25 +9,27 @@
 
 	<div class="container">
 		<section class="footer-data">
-			<div class="copyright inline">
+			<div class="copyright">
 				<?php MountainConqueror\Templating\display_copyright_text(); ?>
 			</div>
 
-			<nav class="social inline">
+			<nav class="social">
 				<?php MountainConqueror\Templating\display_social_network_links(); ?>
 			</nav>
 
-			<?php
-			if ( has_nav_menu( 'footer' ) ) {
-				wp_nav_menu(
-					[
-						'theme_location' => 'footer',
-						'menu_class'     => 'menu inline',
-						'container'      => false,
-					]
-				);
-			}
-			?>
+			<nav class="utility-navigation">
+				<?php
+				if ( has_nav_menu( 'footer' ) ) {
+					wp_nav_menu(
+						[
+							'theme_location' => 'footer',
+							'menu_class'     => 'menu inline',
+							'container'      => false,
+						]
+					);
+				}
+				?>
+			</nav>
 		</section>
 	</div>
 

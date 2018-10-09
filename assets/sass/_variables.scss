@@ -6,7 +6,8 @@ $blue   : #364A64;
 $border : #0e1e2c;
 $red    : #9F3636;
 
-$dark_blue: darken( $blue, 17.5% );
+$light_border : desaturate( lighten( $border, 60% ), 25% );
+$dark_blue    : darken( $blue, 17.5% );
 
 /**
  * Typography / font names

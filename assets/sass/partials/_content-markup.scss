@@ -1,0 +1,65 @@
+.entry-content {
+	p {
+		margin: 0 0 1em;
+	}
+
+	blockquote {
+		font-style: italic;
+		padding-left: 4rem;
+		margin:2rem 0 1.5rem;
+		quotes: "\201C""\201D""\2018""\2019";
+		position: relative;
+
+		&:before {
+			content: open-quote;
+			font-family: Georgia, 'Times New Roman', Times, serif;
+			position: absolute;
+			opacity: .325;
+			font-size: 4rem;
+			top:-1rem;
+			left:2rem;
+		}
+	}
+
+	table {
+		width: 100%;
+		max-width: 100%;
+		table-layout: fixed;
+		border-collapse: collapse;
+		vertical-align: top;
+		margin-bottom: 2rem;
+		display: table;
+
+		tr {
+			border-bottom: 1px solid $light_border;
+		}
+
+		td, th {
+			vertical-align: top;
+			cursor: default;
+			padding:.25em .125em;
+		}
+
+		th {
+			font-weight: bold;
+		}
+	}
+
+	dl {
+		dt {
+			font-weight: bold;
+		}
+
+		dd {
+			margin-bottom: .5em;
+		}
+	}
+
+	cite {
+		font-style: italic;
+	}
+
+	code {
+		background: $light_border;
+	}
+}

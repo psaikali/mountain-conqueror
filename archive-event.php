@@ -25,9 +25,7 @@ if ( have_posts() ) { ?>
 	);
 
 } else {
-	esc_html_e( 'Sorry, but we don\'t have any event planned yet!', 'inp-mc' );
-	// Or we could use a more complex layout/template if we don't have event yet:
-	// get_template_part( 'parts/content', 'no-results' );
+	get_template_part( 'parts/content', 'no-results' );
 }
 
 get_footer();
