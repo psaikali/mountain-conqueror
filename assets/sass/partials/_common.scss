@@ -53,8 +53,3 @@
 %trans_in_delayed { transition:.325s all ease-in-out .125s; }
 %trans_out { transition:.175s all ease-out; }
 %pseudo { content:""; position:absolute; display:block; }
-
-%padding {
-	padding-left:$padding;
-	padding-right:$padding;
-}

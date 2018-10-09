@@ -1,0 +1,98 @@
+/**
+ * Style for the left sidebar (wrapper in #masthead),
+ * containing the brand logo & primary navigation.
+ */
+header#masthead {
+	.site-title {
+		margin: 6vw auto;
+		max-width:70%;
+		
+		@include resp(medium-up) {
+			max-width: 100%;
+			margin: 2rem auto 6vh;
+
+			a {
+				&:hover {
+					opacity: .6;
+				}
+			}
+		}
+	}
+
+	nav.main-navigation {
+		display: none;
+
+		@include resp(medium-up) {
+			display: block;
+		}
+
+		> ul.menu {
+			@extend %list-inline;
+
+			> li {
+				display: block;
+				width:100%;
+				margin-bottom: $margin;
+
+				> a {
+					display: block;
+					font-size: 1rem;
+					text-align: center;
+					background: $dark_blue;
+					padding:.125em .25em;
+					color:#fff;
+					text-transform: uppercase;
+					position: relative;
+					overflow: hidden;
+
+					&:hover {
+						text-decoration: none;
+						background: $blue;
+					}
+				}
+			}
+
+			li {
+				&.current-menu-item, &.current-menu-ancestor, &.current-menu-parent {
+					> a {
+						background: $red;
+					}
+				}
+
+				&.menu-item-has-children {
+					position: relative;
+
+					&:hover {
+						> ul.sub-menu {
+							display: block;
+						}
+					}
+				}
+
+				> ul.sub-menu {
+					@extend %list-inline;
+					position: absolute;
+					left:100%;
+					top:0;
+					width: 10em;
+					background: transparentize( $dark_blue, .1 );
+					display: none;
+					padding-top:.25rem;
+					padding-bottom:.25rem;
+					
+					li {
+						display: block;
+
+						> a {
+							text-transform: uppercase;
+							display: block;
+							font-size: .85rem;
+							color:#fff;
+							padding:.375em .5em .375em .75em;
+						}
+					}
+				}
+			}
+		}
+	}
+}

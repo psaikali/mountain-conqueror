@@ -1,5 +1,8 @@
+/**
+ * Styles for the footer at the bottom of the page
+ * containing copyright & social networks & secondary navigation.
+ */
 footer#footer {
-	$footer_blue: darken( $blue, 17.5% );
-	background: transparentize( $footer_blue, .1 );
+	background: transparentize( $dark_blue, .1 );
 	color: #fff;
 }

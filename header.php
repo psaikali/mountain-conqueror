@@ -14,48 +14,45 @@
 
 <body <?php body_class(); ?>>
 
-<?php do_action( 'inp_mc_before_page' ); ?>
+<?php do_action( 'inp_mc_before_masthead' ); ?>
 
-<div id="page" class="hfeed">
+<section class="site-content container">
+	<header id="masthead" role="banner">
+		<?php do_action( 'inp_mc_start_masthead' ); ?>
 
-	<?php do_action( 'inp_mc_before_masthead' ); ?>
+		<?php if ( is_front_page() && is_home() ) { ?>
+		<h1 class="site-title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+				<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+			</a>
+		</h1>
+		<?php } else { ?>
+		<p class="site-title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+				<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+			</a>
+		</p>
+		<?php } ?>
 
-	<section class="site-content container">
-		<header id="masthead" role="banner">
-			<?php do_action( 'inp_mc_start_masthead' ); ?>
+		<nav class="main-navigation">
+			<?php
+			if ( has_nav_menu( 'primary' ) ) {
+				wp_nav_menu(
+					[
+						'theme_location' => 'primary',
+						'menu_id'        => 'primary-menu',
+						'menu_class'     => 'menu',
+						'container'      => false,
+					]
+				);
+			}
+			?>
+		</nav>
 
-			<?php if ( is_front_page() && is_home() ) { ?>
-			<h1 class="site-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-					<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
-				</a>
-			</h1>
-			<?php } else { ?>
-			<p class="site-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-					<img src="<?php echo esc_url( Templating\get_theme_image( 'mountain-conqueror-logo.svg', 'svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
-				</a>
-			</p>
-			<?php } ?>
+		<?php do_action( 'inp_mc_end_masthead' ); ?>
+	</header>
 
-			<nav id="navigation" class="main-navigation">
-				<?php
-				if ( has_nav_menu( 'primary' ) ) {
-					wp_nav_menu(
-						[
-							'theme_location' => 'primary',
-							'menu_id'        => 'primary-menu',
-							'menu_class'     => 'menu dropdown',
-						]
-					);
-				}
-				?>
-			</nav>
+	<?php do_action( 'inp_mc_after_masthead' ); ?>
 
-			<?php do_action( 'inp_mc_end_masthead' ); ?>
-		</header>
-
-		<?php do_action( 'inp_mc_after_masthead' ); ?>
-
-		<main id="content" role="main">
-			<?php do_action( 'inp_mc_start_content' ); ?>
+	<main id="content" role="main">
+		<?php do_action( 'inp_mc_start_content' ); ?>
