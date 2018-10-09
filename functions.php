@@ -77,12 +77,13 @@ function include_all_files() {
 
 	foreach ( $files_to_include as $file ) {
 		if ( ! $filepath = locate_template( $file ) ) {
-			trigger_error( 
-				sprintf( 
-					__( 'Error locating %s for inclusion', 'inp-mc' ), 
+			trigger_error(
+				sprintf(
+					__( 'Error locating %s for inclusion', 'inp-mc' ),
 					$file
-				), 
-			E_USER_ERROR);
+				),
+				E_USER_ERROR
+			);
 		}
 
 		require_once $filepath;

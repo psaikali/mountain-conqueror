@@ -71,7 +71,7 @@ if ( ! function_exists( __NAMESPACE__ . '\display_entry_footer' ) ) {
 			if ( $categories_list ) {
 				echo sprintf(
 					'<span class="category-links">%1$s</span>',
-					$categories_list
+					wp_kses_post( $categories_list )
 				);
 			}
 		}
@@ -98,22 +98,21 @@ if ( ! function_exists( __NAMESPACE__ . '\display_post_image' ) ) {
 	function display_post_image( $size = 'thumbnail', $wrap_with_link = true ) {
 		$image_src = null;
 
-		/**
-		 * Post does NOT have featured image.
-		 * Use safety net : find the first <img /> from $post_content.
-		 */
 		if ( ! has_post_thumbnail() && apply_filters( 'inp_mc_should_use_first_content_image_as_thumbnail', true ) ) {
+			/**
+			 * Post does NOT have featured image.
+			 * Use safety net : find the first <img /> from $post_content.
+			 */
 			global $post;
 			$output = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches );
 
 			if ( isset( $matches[1][0] ) && ! empty( $matches[1][0] ) ) {
 				$image_src = $matches[1][0];
 			}
-
-		/**
-		 * Post DOES have a featured image.
-		 */
 		} else {
+			/**
+			 * Post DOES have a featured image.
+			 */
 			$image_src = get_the_post_thumbnail_url( null, $size );
 		}
 
@@ -167,17 +166,17 @@ if ( ! function_exists( __NAMESPACE__ . '\display_social_network_links' ) ) {
 
 		?>
 		<ul class="social-icons">
-			<li class="title"><?php _e( 'Follow my adventures', 'inp-mc' ); ?></li>
+			<li class="title"><?php esc_html_e( 'Follow my adventures', 'inp-mc' ); ?></li>
 
 			<?php
 			foreach ( $social_networks as $network ) {
 				$network_url = Options\get_option( "social_url_{$network}" );
 
 				if ( ! empty( $network_url ) ) {
-				?>
+					?>
 					<li class="social-icon <?php echo esc_attr( $network ); ?>">
 						<a href="<?php echo esc_url( $network_url ); ?>" rel="nofollow" target="_blank">
-							<i class="socicon socicon-<?php echo $network; ?>"></i>
+							<i class="socicon socicon-<?php echo esc_attr( $network ); ?>"></i>
 							<span class="screen-reader-text">
 							<?php
 							/* translators: the social network name */
@@ -186,7 +185,7 @@ if ( ! function_exists( __NAMESPACE__ . '\display_social_network_links' ) ) {
 							</span>
 						</a>
 					</li><!-- .social-icon -->
-				<?php
+					<?php
 				}
 			}
 			?>

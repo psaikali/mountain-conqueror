@@ -12,10 +12,11 @@
 
 	<div class="entry-content">
 		<div class="entry-text-content">
-			<?php if ( is_single() ) {
+			<?php
+			if ( is_single() ) {
 				the_content();
 
-				wp_link_pages( 
+				wp_link_pages(
 					array(
 						'before' => '<nav class="page-links">' . esc_html__( 'Pages:', 'inp-mc' ),
 						'after'  => '</nav>',
@@ -23,15 +24,18 @@
 				);
 			} else {
 				the_excerpt();
-			} ?>
+			}
+			?>
 
 			<footer class="entry-footer">
 				<?php Templating\display_entry_footer(); ?>
 			</footer><!-- .entry-footer -->
 		</div><!-- .entry-content -->
 
-		<?php if ( ! is_single() ) {
+		<?php
+		if ( ! is_single() ) {
 			Templating\display_post_image();
-		} ?>
+		}
+		?>
 	</div>
 </article><!-- #post-## -->

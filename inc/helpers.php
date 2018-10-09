@@ -14,7 +14,7 @@ class Helpers {
 	 */
 	public static function debug( $log ) {
 		if ( true === WP_DEBUG && ! defined( 'WP_CURRENTLY_TESTING' ) ) {
-			error_log('--------------------------------- /!\ ' . __NAMESPACE__ . ' /!\ --------------------------------- ');
+			error_log( '--------------------------------- /!\ ' . __NAMESPACE__ . ' /!\ --------------------------------- ' );
 
 			if ( is_array( $log ) || is_object( $log ) ) {
 				error_log( print_r( $log, true ) );
@@ -22,7 +22,7 @@ class Helpers {
 				error_log( $log );
 			}
 
-			error_log('--------------------------------- /!\ ' . __NAMESPACE__ . ' /!\ --------------------------------- ');
+			error_log( '--------------------------------- /!\ ' . __NAMESPACE__ . ' /!\ --------------------------------- ' );
 		}
 	}
 }

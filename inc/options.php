@@ -79,11 +79,11 @@ function options_general_tab_theme_fields() {
 
 	// Header blockquote.
 	$fields[] = Field::make( 'rich_text', 'header_quote', 'Top header quote' )
-				->set_help_text( __( 'This content will be displayed in the top part of your site, below the main content of the page.', 'inp-mc') );
+				->set_help_text( __( 'This content will be displayed in the top part of your site, below the main content of the page.', 'inp-mc' ) );
 
 	// Footer copyright text.
 	$fields[] = Field::make( 'rich_text', 'copyright_text', 'Footer copyright text' )
-				->set_help_text( __( 'Note that use can use the placeholder <code>%year%</code> to automatically display the current year.', 'inp-mc') );
+				->set_help_text( __( 'Note that use can use the placeholder <code>%year%</code> to automatically display the current year.', 'inp-mc' ) );
 
 	return $fields;
 }
@@ -110,7 +110,7 @@ function options_social_tab_theme_fields() {
 		$networks,
 		function ( $network ) use ( &$fields ) {
 			/* Translators: "{social network name} URL" */
-			$title = sprintf( __( '%1$s URL', 'inp-mc' ), ucfirst( $network ) );
+			$title    = sprintf( __( '%1$s URL', 'inp-mc' ), ucfirst( $network ) );
 			$fields[] = Field::make( 'text', "social_url_{$network}", $title )
 						->set_required()
 						->set_width( 50 );

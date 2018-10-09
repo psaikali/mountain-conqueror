@@ -17,11 +17,11 @@
 
 			<?php
 			if ( has_nav_menu( 'footer' ) ) {
-				wp_nav_menu( 
+				wp_nav_menu(
 					[
-						'theme_location'  => 'footer',
-						'menu_class'      => 'menu inline',
-						'container'       => false,
+						'theme_location' => 'footer',
+						'menu_class'     => 'menu inline',
+						'container'      => false,
 					]
 				);
 			}

@@ -18,7 +18,7 @@ add_filter( 'excerpt_length', __NAMESPACE__ . '\excerpt_length' );
  * @param $post WP_Post The post object.
  */
 function inject_event_post_data( $post ) {
-	if ( apply_filters( 'inp_mc_enable_injection_event_data_in_post', true ) && ! is_admin() && $post->post_type === 'event' ) {
+	if ( apply_filters( 'inp_mc_enable_injection_event_data_in_post', true ) && ! is_admin() && 'event' === $post->post_type ) {
 		$post->event = \Inpsyde\Events\Model\Event::fromPost( $post );
 	}
 }
@@ -63,7 +63,7 @@ function display_header_top_quote() {
 	if ( strlen( trim( $quote ) ) > 0 ) {
 		?>
 		<aside class="header-top-quote">
-			<?php echo apply_filters( 'the_content', wp_kses_post( $quote ) ); ?>
+			<?php echo apply_filters( 'the_content', wp_kses_post( $quote ) ); // WPCS: XSS OK. ?>
 		</aside>
 		<?php
 	}
