@@ -2,7 +2,28 @@
 
 namespace MountainConqueror;
 
-require_once get_template_directory() . '/vendor/autoload.php';
+/**
+ * Include composer libraries needed by this theme:
+ * CarbonFields.
+ *
+ * If you're using Composer to manage your whole WordPress site,
+ * use inp_mc_composer_path filter to load a different path to composer,
+ * by providing a different path to Composer autoloader, or
+ * by providing NULL if you're already requiring composer autoloader somewhere else.
+ *
+ * @since 1.0.0
+ */
+function include_composer_libraries() {
+	$composer_path = apply_filters( 'inp_mc_composer_path', get_template_directory() . '/vendor/autoload.php' );
+
+	if ( ! is_null( $composer_path ) ) {
+		if ( ! file_exists( $composer_path ) ) {
+			die( 'Autoloader was not found, aborting.' );
+		}
+
+		require_once $composer_path;
+	}
+}
 
 /**
  * Includes all files.
@@ -64,4 +85,5 @@ function include_all_files() {
 	}
 }
 
+include_composer_libraries();
 include_all_files();
