@@ -14,6 +14,10 @@ namespace MountainConqueror;
  * @since 1.0.0
  */
 function include_composer_libraries() {
+	if ( defined( 'COMPOSER_AUTOLOADER_PATH' ) ) {
+		return;
+	}
+
 	$composer_path = apply_filters( 'inp_mc_composer_path', get_template_directory() . '/vendor/autoload.php' );
 
 	if ( ! is_null( $composer_path ) ) {
