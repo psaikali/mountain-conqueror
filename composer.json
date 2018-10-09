@@ -17,7 +17,7 @@
   "require": {
     "php": ">=7.0",
     "composer/installers": "~1.0",
-    "htmlburger/carbon-fields-plugin": "^2.2"
+    "htmlburger/carbon-fields": "^2.2"
   },
   "minimum-stability": "dev",
   "prefer-stable": true
