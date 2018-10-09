@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7a72e2c96fa98831f78676e1afe00d2",
+    "content-hash": "43feecdca1a9fe617e82a26ac254097f",
     "packages": [
         {
             "name": "composer/installers",
@@ -248,6 +248,45 @@
             "description": "WordPress developer-friendly custom fields for post types, taxonomy terms, users, comments, widgets, options and more.",
             "homepage": "http://carbonfields.net/",
             "time": "2018-03-16T09:06:14+00:00"
+        },
+        {
+            "name": "htmlburger/carbon-fields-plugin",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/htmlburger/carbon-fields-plugin.git",
+                "reference": "9aba1045fc35020b4525cf11d084d8a55600cdb9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/htmlburger/carbon-fields-plugin/zipball/9aba1045fc35020b4525cf11d084d8a55600cdb9",
+                "reference": "9aba1045fc35020b4525cf11d084d8a55600cdb9",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^1.0",
+                "htmlburger/carbon-fields": "2.2.0",
+                "php": ">=5.3"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Carbon_Fields_Plugin\\": "core/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "atanas-angelov-dev",
+                    "email": "atanas.angelov.dev@gmail.com"
+                }
+            ],
+            "description": "WordPress plugin loader for Carbon Fields.",
+            "homepage": "http://carbonfields.net/",
+            "time": "2018-03-16T09:20:19+00:00"
         }
     ],
     "packages-dev": [],
