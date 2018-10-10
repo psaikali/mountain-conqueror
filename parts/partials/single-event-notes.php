@@ -1,5 +1,7 @@
 <?php
-$notes = $post->event->additionalNotes();
+global $post;
+$event = apply_filters( 'inp_mc_event_data_source', $post->event, $post );
+$notes = $event->additionalNotes();
 
 if ( strlen( $notes ) === 0 ) {
 	return;

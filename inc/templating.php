@@ -37,10 +37,12 @@ if ( ! function_exists( __NAMESPACE__ . '\display_event_footer' ) ) {
 			return;
 		}
 
+		$event = apply_filters( 'inp_mc_event_data_source', $post->event, $post );
+
 		echo sprintf(
 			'<span class="event-date has-string-separator">%1$s</span><span class="event-location">%2$s</span>',
-			esc_html( $post->event->startDate()->format( get_option( 'date_format' ) ) ),
-			esc_html( $post->event->location()->country() )
+			esc_html( $event->startDate()->format( get_option( 'date_format' ) ) ),
+			esc_html( $event->location()->country() )
 		);
 	}
 }

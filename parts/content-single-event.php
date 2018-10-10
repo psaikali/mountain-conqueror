@@ -11,8 +11,12 @@
 			<?php the_content(); ?>
 		</div><!-- .entry-content -->
 
-		<?php get_template_part( 'parts/partials/single-event', 'details' ); ?>
-
-		<?php get_template_part( 'parts/partials/single-event', 'notes' ); ?>
+		<?php
+		global $post;
+		if ( apply_filters( 'inp_mc_post_is_a_valid_event', true, $post ) ) {
+			get_template_part( 'parts/partials/single-event', 'details' );
+			get_template_part( 'parts/partials/single-event', 'notes' );
+		}
+		?>
 	</div>
 </article><!-- #post-## -->

@@ -1,3 +1,7 @@
+<?php
+global $post;
+$event = apply_filters( 'inp_mc_event_data_source', $post->event, $post );
+?>
 <div class="entry-event-data">
 	<div class="entry-event-details">
 		<!-- I am assuming that every metadata is available on the Event object
@@ -12,8 +16,8 @@
 						printf(
 							/* Translators: From {date} to {date} */
 							wp_kses_post( '<span class="from">From %1$s</span> <span class="to">to %2$s</span>', 'Event date', 'inp-mc' ),
-							$post->event->startDate()->format( get_option( 'date_format' ) ),
-							$post->event->endDate()->format( get_option( 'date_format' ) )
+							$event->startDate()->format( get_option( 'date_format' ) ),
+							$event->endDate()->format( get_option( 'date_format' ) )
 						);
 					?>
 				</td>
@@ -43,11 +47,11 @@
 
 					printf(
 						wp_kses_post( $location_string ),
-						$post->event->location()->name(),
-						$post->event->location()->street(),
-						$post->event->location()->postalCode(),
-						$post->event->location()->city(),
-						$post->event->location()->country()
+						$event->location()->name(),
+						$event->location()->street(),
+						$event->location()->postalCode(),
+						$event->location()->city(),
+						$event->location()->country()
 					);
 					?>
 				</td>
@@ -60,8 +64,8 @@
 					<?php
 					printf(
 						esc_html_x( '%1$d - %2$d', 'Event min and max subscribers', 'inp-mc' ),
-						$post->event->subscribedMin(),
-						$post->event->subscribedMax()
+						$event->subscribedMin(),
+						$event->subscribedMax()
 					); ?>
 				</td>
 			</tr>
@@ -81,7 +85,7 @@
 					<?php
 					echo implode(
 						_x( ', ', 'Event separator for the list of what is included in price', 'inp-mc' ),
-						$post->event->includedInPrice()
+						$event->includedInPrice()
 					);
 					?>
 				</td>
@@ -94,7 +98,7 @@
 					<?php
 					printf(
 						esc_html_x( 'Until %1$s', 'Event date for end of registration', 'inp-mc' ),
-						$post->event->registrationEnd()->format( get_option( 'date_format' ) )
+						$event->registrationEnd()->format( get_option( 'date_format' ) )
 					);
 					?>
 				</td>
@@ -117,11 +121,11 @@
 
 			printf(
 				wp_kses_post( $contact_string ),
-				$post->event->contactPerson()->firstName(),
-				$post->event->contactPerson()->lastName(),
-				$post->event->contactPerson()->position(),
-				esc_attr( antispambot( $post->event->contactPerson()->email() ) ),
-				esc_attr( $post->event->contactPerson()->telephone() )
+				$event->contactPerson()->firstName(),
+				$event->contactPerson()->lastName(),
+				$event->contactPerson()->position(),
+				esc_attr( antispambot( $event->contactPerson()->email() ) ),
+				esc_attr( $event->contactPerson()->telephone() )
 			);
 			?>
 		</p>
