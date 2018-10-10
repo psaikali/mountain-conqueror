@@ -1,0 +1,27 @@
+.ie {
+	header#masthead {
+		nav.main-navigation {
+			> ul.menu {
+				@include resp(large-up) {
+					li {
+						> ul.sub-menu {
+							display: none;
+							opacity:1;
+							visibility: visible;
+							z-index:500;
+							transform: none;
+						}
+
+						&.menu-item-has-children {
+							&:hover {
+								> ul.sub-menu {
+									display: block;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
