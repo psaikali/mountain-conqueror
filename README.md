@@ -18,6 +18,7 @@ But that logic would probably be part of the plugin in charge of the Event back-
 
 ## Installation
 Use `git clone` to clone the repository in your /wp-content/themes/ folder.
+Then, you will need to `cd` in the theme folder and do a `composer install` to install the required library.
 
 ### Using composer
 You first need to add the private repo to your composer.json file:
@@ -32,6 +33,23 @@ composer require pskli/mountain-conqueror
 or, if you want to test the development version:
 ```
 composer require pskli/mountain-conqueror:dev-develop
+```
+
+### Troubleshooting
+If you are using Composer to install WP and its assets from your site root folder, you might have to do 2 things.
+
+##### 1. 
+Be sure to load your composer autoloader in wp-config.php, like such for example:
+```
+define( 'COMPOSER_AUTOLOADER_PATH', ABSPATH . 'vendor/autoload.php' );
+require_once COMPOSER_AUTOLOADER_PATH;
+```
+Defining a `COMPOSER_AUTOLOADER_PATH` constant will disable the theme Composer autoloader.
+
+##### 2. 
+If the Theme Options admin page does not display any assets and you get 404 in your console, it's probably due to a specific /vendor/ directory location. You can tell the library where your /vendor/ directory is located by doing so in your wp-config.php file:
+```
+define ( 'Carbon_Fields\URL', 'http://your.site.url.to/vendor/htmlburger/carbon-fields' );
 ```
 
 ### Changelog
