@@ -7,7 +7,7 @@ aside.header-top-quote {
 	display: none;
 	text-align: center;
 
-	@include resp(medium-up) {
+	@include resp(large-up) {
 		display: flex;
 	}
 

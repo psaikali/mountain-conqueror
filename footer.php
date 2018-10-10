@@ -24,12 +24,15 @@
 						[
 							'theme_location' => 'footer',
 							'menu_class'     => 'menu inline',
+							'menu_id'        => 'secondary-navigation-menu',
 							'container'      => false,
 						]
 					);
 				}
 				?>
 			</nav>
+
+			<span class="trigger-mobile-menu"><?php esc_html_e( 'Menu', 'inp-mc' ); ?></span>
 		</section>
 	</div>
 

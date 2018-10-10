@@ -9,6 +9,8 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<?php wp_head(); ?>
 </head>
 
@@ -42,7 +44,7 @@
 				wp_nav_menu(
 					[
 						'theme_location' => 'primary',
-						'menu_id'        => 'primary-menu',
+						'menu_id'        => 'primary-navigation-menu',
 						'menu_class'     => 'menu',
 						'container'      => false,
 					]

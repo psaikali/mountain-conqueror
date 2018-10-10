@@ -119,11 +119,26 @@ function scripts() {
 	wp_enqueue_style( 'inp-mc-style', get_stylesheet_directory_uri() . '/style' . $suffix . '.css', [], $version );
 	wp_enqueue_script( 'inp-mc-scripts', get_template_directory_uri() . '/assets/scripts/project' . $suffix . '.js', [ 'jquery' ], $version, true );
 
+	wp_localize_script( 'inp-mc-scripts', 'inp_mc_data', get_json_data() );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\scripts' );
+
+/**
+ * Pass PHP data to JS via JSON
+ *
+ * @return array $data An array of data
+ */
+function get_json_data() {
+	$data = [
+		'is_debug' => (int) WP_DEBUG,
+	];
+
+	return $data;
+}
 
 /**
  * Load admin JS scripts

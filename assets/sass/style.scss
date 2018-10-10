@@ -41,6 +41,7 @@ Based on Underscores http://underscores.me/, (C) 2012-2017 Automattic, Inc.
 @import "partials/content-markup";
 @import "partials/post";
 @import "partials/event";
+@import "partials/mobile-nav";
 
 ::-moz-selection { background: rgba($red, .625); }
 ::selection { background: rgba($red, .625); }
@@ -124,3 +125,19 @@ h3, .h3 { font-size: 1.55rem; }
 h4, .h4 { font-size: 1.3rem; }
 h5, .h5 { font-size: 1.1rem; }
 h6, .h6 { font-size: 1rem; }
+
+/**
+ * Debug info div, only visible if WP_DEBUG is set to true
+ */
+.debug-info {
+	position: fixed;
+	top:0;
+	right:0;
+	background: $red;
+	font-weight: bold;
+	z-index:9000;
+	padding:.125em .25em;
+	font-size: .625rem;
+	color:#fff;
+	font-family: monospace;
+}
