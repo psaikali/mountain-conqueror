@@ -37,8 +37,9 @@ composer require pskli/mountain-conqueror:dev-develop
 
 ### Troubleshooting
 If you are using Composer to install WP and its assets from your site root folder, you might have to do 2 things.
+
 1. Be sure to load your composer autoloader in wp-config.php, like such for example:
-````
+```
 define( 'COMPOSER_AUTOLOADER_PATH', ABSPATH . 'vendor/autoload.php' );
 require_once COMPOSER_AUTOLOADER_PATH;
 ```
