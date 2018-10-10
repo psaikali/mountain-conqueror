@@ -16,9 +16,11 @@
 
 <body <?php body_class(); ?>>
 
-<?php do_action( 'inp_mc_before_masthead' ); ?>
+<?php do_action( 'inp_mc_before_site_content' ); ?>
 
 <section class="site-content container">
+	<?php do_action( 'inp_mc_before_masthead' ); ?>
+
 	<header id="masthead" role="banner">
 		<?php do_action( 'inp_mc_start_masthead' ); ?>
 

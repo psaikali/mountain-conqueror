@@ -1,6 +1,7 @@
 		<?php do_action( 'inp_mc_end_content' ); ?>
 	</main><!-- #content -->
 </section>
+<?php do_action( 'inp_mc_after_site_content' ); ?>
 
 <?php do_action( 'inp_mc_before_footer' ); ?>
 
@@ -40,7 +41,6 @@
 </footer>
 
 <?php do_action( 'inp_mc_after_footer' ); ?>
-
 
 <?php wp_footer(); ?>
 
