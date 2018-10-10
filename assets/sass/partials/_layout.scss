@@ -1,0 +1,79 @@
+/**
+ * Global layout properties
+ */
+$container_width: 1150;
+$header_width   : 250;
+$content_width  : 850;
+
+.container {
+	max-width: $container_width*1px;
+	margin: 0 auto;
+	width: 90%;
+
+	@include resp(medium-up) {
+		width:85%;
+	}
+
+	@include resp(large-up) {
+		width:80%;
+	}
+}
+
+section.site-content {
+	@extend .clearfix;
+}
+
+/**
+ * The header, which is actually a left sidebar on this site.
+ * Contains logo and main navigation.
+ */
+header#masthead {
+	@include resp(large-up) {
+		width: ( ( $header_width * 100 ) / $container_width ) * 1%;
+		float: left;
+	}
+}
+
+/**
+ * The content section on the right part of the site.
+ */
+main#content {
+	padding-bottom: 5rem;
+
+	@include resp(large-up) {
+		width: ( ( $content_width * 100 ) / $container_width ) * 1%;
+		margin-left: ( ( ( $container_width - $content_width - $header_width ) * 100 ) / $container_width ) * 1%;
+		float: right;
+		padding-bottom: 7.5rem;
+	}	
+}
+
+/**
+ * The footer, always positionned at the bottom of the viewport.
+ */
+footer#footer {
+	//@include resp(medium-up) {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index:100;
+	//}
+}
+
+/**
+ * Some archive pages could have a div.flex-list container
+ * around article.post to display 2 posts per row
+ */
+div.flex-list {
+	@include resp(large-up) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		
+		article.post {
+			flex-basis: 47.5%;
+		}
+	}
+}

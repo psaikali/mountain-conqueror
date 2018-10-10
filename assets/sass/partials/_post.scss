@@ -1,0 +1,103 @@
+/**
+ * Stylings for post appareance in listing/archive pages
+ */
+article.post {
+	border-bottom: 1px solid $border;
+	padding-bottom:$margin;
+	margin-bottom:$margin;
+
+	@include resp(medium-up) {
+		padding-bottom:$margin*2;
+		margin-bottom:$margin*3;
+	}
+
+	&.has-featured-image {
+		div.entry-text-content {
+			@include resp(large-up) {
+				width:60%;
+				margin-right: 4.5%;
+				float:left;
+			}
+		}
+	
+		figure.entry-featured-image {
+			@include resp(large-up) {
+				position: relative;
+				display: block;
+				background-size: cover;
+				background-position: center center;
+				background-repeat: no-repeat;
+				border: 1px solid $blue;
+				width:35%;
+				float:right;
+				border-radius:100%;
+				height:0;
+				overflow: hidden;
+				padding-bottom: 35%;
+	
+				a {
+					display: block;
+					position: absolute;
+					width:100%;
+					height:100%;
+	
+					img {
+						opacity:0;
+					}
+	
+					&:hover {
+						background: rgba( $blue, .5 );
+					}
+				}
+			}
+		}	
+	}
+}
+
+.entry-header {
+	margin:0;
+
+	.entry-title {
+		margin: 0 0 .25em;
+	}
+}
+
+div.entry-content {
+	@extend .clearfix;
+}
+
+footer.entry-footer {
+	font-style: italic;
+	font-size: 0.85rem;
+}
+
+div.entry-text-content {
+	@extend .clearfix;
+}
+
+figure.entry-featured-image {
+	display: none;
+	margin:0;
+}
+
+nav.page-links, nav.post-navigation {
+	clear:both;
+	margin-top: $margin*2;
+
+	@include resp(medium-up) {
+		.nav-previous, .nav-next {
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+		}
+
+		.nav-previous {
+			padding-right: 1rem;
+		}
+
+		.nav-next {
+			padding-left: 1rem;
+			text-align: right;
+		}
+	}
+}

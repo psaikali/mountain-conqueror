@@ -1,0 +1,86 @@
+/**
+ * Stylings for elements in page body content
+ */
+.entry-content {
+	p, ul, ol, dl {
+		margin: 0 0 1em;
+	}
+
+	blockquote {
+		font-style: italic;
+		padding-left: 4rem;
+		margin:2rem 0 1.5rem;
+		quotes: "\201C""\201D";
+		position: relative;
+
+		&:before {
+			content: open-quote;
+			font-family: Georgia, 'Times New Roman', Times, serif;
+			position: absolute;
+			opacity: .325;
+			font-size: 4rem;
+			top:-1.15rem;
+			left:1.75rem;
+			width: .625em;
+			text-align: left;
+		}
+	}
+
+	table {
+		width: 100%;
+		max-width: 100%;
+		table-layout: fixed;
+		border-collapse: collapse;
+		vertical-align: top;
+		margin-bottom: 2rem;
+		display: table;
+
+		&.text-left-aligned {
+			text-align: left;
+		}
+
+		&.no-border {
+			tr {
+				border:none;
+			}
+		}
+
+		tr {
+			border-bottom: 1px solid $light_border;
+		}
+
+		td, th {
+			vertical-align: top;
+			cursor: default;
+			padding:.275em 0;
+		}
+
+		th {
+			font-weight: bold;
+		}
+	}
+
+	dl {
+		dt {
+			font-weight: bold;
+		}
+
+		dd {
+			margin-bottom: .5em;
+		}
+	}
+
+	cite {
+		font-style: italic;
+	}
+
+	code {
+		background: $light_border;
+	}
+
+	hr {
+		margin: $margin*2 0;
+		border:none;
+		border-top:1px solid $border;
+	}
+}

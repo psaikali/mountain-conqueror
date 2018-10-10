@@ -1,0 +1,85 @@
+/**
+ * Styles for the footer at the bottom of the page
+ * containing copyright & social networks & secondary navigation.
+ */
+footer#footer {
+	background: transparentize( $dark_blue, .125 );
+	color: #fff;
+	padding: .5rem;
+	font-size: .85rem;
+
+	@include resp(small-up) {
+		padding: 1.5rem 1rem;
+	}
+
+	a {
+		color:#fff;
+	}
+
+	@include resp(large-up) {
+		text-align: center;
+	}
+
+	section.footer-data {
+		div.copyright, nav.social, nav.utility-navigation {
+			display: none;
+
+			@include resp(small-up) {
+				display: inline-block;
+				margin: 0 .75rem;
+			}
+		}
+
+		div.copyright {
+			margin-left: 0;
+		}
+
+		nav.social {
+			display: none;
+
+			@include resp(small-up) {
+				display: none;
+			}
+
+			@include resp(large-up) {
+				display: inline-block;
+			}
+
+			ul {
+				@extend %list-inline;
+
+				li {
+					&.title {
+						margin-right: .5em;
+					}
+
+					a {
+						display: inline-block;
+						padding:0 .175em;
+
+						&:hover {
+							opacity: .625;
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+
+		nav.utility-navigation {
+			margin-right: 0;
+
+			ul {
+				@extend %list-inline;
+
+				li {
+					margin-right: .375em;
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+}

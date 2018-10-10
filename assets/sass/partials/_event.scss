@@ -1,0 +1,68 @@
+/**
+ * Stylings for Event posts (listing + single)
+ */
+article.post.event {
+	.entry-header {
+		.entry-title {
+			margin: .25em 0 .25em;
+		}
+	}
+}
+
+div.entry-event-data {
+	@extend .clearfix;
+	margin: $margin 0;
+
+	div.entry-event-details {
+		@include resp(large-up) {
+			float: left;
+			width: 70%;
+		}
+
+		table {
+			tr {
+				th {
+					width:100%;
+					display: block;
+
+					@include resp(medium-up) {
+						width: 35%;
+						display:table-cell;
+					}
+				}
+
+				td {
+					width:100%;
+					display: block;
+
+					@include resp(medium-up) {
+						width: auto;
+						display:table-cell;
+					}
+				}
+			}
+
+			span {
+				display: block;
+			}
+		}
+	}
+
+	div.entry-event-contact {
+		@include resp(large-up) {
+			float: right;
+			width: 25%;
+		}
+
+		> h3 {
+			margin: .275em 0 1em;
+			font-family: $font;
+			font-weight: normal;
+			font-size: 1.1rem;
+		}
+
+		span {
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,174 @@
+/**
+ * CSS styling for the mobile navigation panel
+ */
+$background_color: rgba( $dark_blue, .825 );
+
+span.close-mobile-menu {
+	display: none;
+}
+
+@include resp(large) {
+	/**
+	 * Mobile nav styling
+	 */
+	header#masthead nav.main-navigation {
+		position: fixed;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		width:100%;
+		height:100%;
+		background: rgba( $dark_blue, .5 );
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		visibility: hidden;
+		z-index: -1;
+		opacity: 0;
+		transform: scale( 1.2 );
+		transition: all 0.2s ease-in-out;
+
+		> ul.menu {
+			margin-bottom: 3.625rem;
+			
+			> li {
+				margin-bottom: $margin/4;
+
+				> a {
+					background: $background_color;
+					padding:.5em .25em;
+				}
+
+				ul.sub-menu {
+					margin:0;
+					padding:0;
+					list-style: none;
+					text-align: center;
+					display: none;
+
+					li {
+						display: block;
+
+						button.parent-indicator {
+							font-size: 1.2rem;
+						}
+
+						a {
+							display: block;
+							background: $background_color;
+							color:#fff;
+							padding:.25em .25em;
+						}
+					}
+				}
+			}
+
+			li {
+				&.menu-item-has-children {
+					position: relative;
+
+					button.parent-indicator {
+						display: block;
+						-webkit-appearance: none;
+						background: transparent;
+						border:none;
+						color:rgba( #fff, .5 );
+						position: absolute;
+						//background: $background_color;
+						top: 0;
+						right:.25em;
+						font-size: 1.4rem;
+						z-index: 1500;
+						padding:.25em .125em;
+						line-height: 1;
+					}
+				}
+			}
+		}
+	}
+
+	span.close-mobile-menu {
+		display: block;
+		position: absolute;
+		color:#fff;
+		text-align: center;
+		font-weight: bold;
+		background: $background_color;
+		bottom:0;
+		left:0;
+		right:0;
+		padding:.325em .25em;
+		font-size: 1.6rem;
+
+		&:hover, &:focus {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+	}
+
+	/**
+	 * When the mobile menu is active.
+	 */
+	header#masthead nav.main-navigation.active {
+		visibility: visible;
+		z-index: 5000;
+		opacity: 1;
+		transform: scale( 1 );
+		transition: all 0.3s ease-in-out;
+
+		> ul {
+			overflow-y: scroll;
+			-webkit-overflow-scrolling:touch;
+		}
+	}
+
+	/**
+	 * Change other elements styles when mobile nav is visible
+	 */
+	html.mobile-menu-active {
+		&, body, .site-content {
+			overflow: hidden;
+			overflow-y: hidden;
+			//pointer-events: none;
+		}
+	
+		#content {
+			filter: blur(3px);
+		}
+	
+		footer#footer {
+			transition: all 0.3s ease-in-out;
+			opacity:0;
+		}
+	}
+}
+
+/**
+ * "MENU" button in footer
+ */
+span.trigger-mobile-menu {
+	display: block;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1.6rem;
+	
+	&:hover, &:focus {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+	
+	@include resp(small-up) {
+		font-size: 1.4rem;
+		text-align: right;
+		float: right;
+		margin-top: -.5rem;
+		margin-bottom: -2rem;
+	}
+
+	@include resp(large-up) {
+		display: none;
+	}		
+}

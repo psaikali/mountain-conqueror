@@ -5,7 +5,10 @@
 	<!--###########################
 		Folders to scan
 	############################-->
-	<file>./src</file>
+	<file>inc</file>
+	<file>parts</file>
+	<exclude-pattern>inc/dummy-data/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
 
 	<!--###########################
 		Set of rules to use
@@ -30,12 +33,10 @@
 	</rule>
 	
 	 <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
-		<exclude-pattern>/src/*</exclude-pattern>
-		<exclude-pattern>/tests/*</exclude-pattern>
+		<exclude-pattern>*</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
-		<exclude-pattern>/src/*</exclude-pattern>
-		<exclude-pattern>/tests/*</exclude-pattern>
+		<exclude-pattern>*</exclude-pattern>
 	</rule>
 </ruleset>

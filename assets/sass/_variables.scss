@@ -1,0 +1,30 @@
+/**
+ * Project specifics
+ */
+$text   : #0F1E2D;
+$blue   : #364A64;
+$border : #0e1e2c;
+$red    : #9F3636;
+
+$light_border : desaturate( lighten( $border, 60% ), 25% );
+$dark_blue    : darken( $blue, 17.5% );
+
+/**
+ * Typography / font names
+ */
+$font  : "Sanchez", "Georgia", "Tahoma", "Helvetica Neue", sans-serif;
+$font2 : "Teko", "Helvetica Neue", sans-serif;
+
+/**
+ * Responsive breakpoints
+ */
+$tiny       : 480px;
+$small      : 576px;
+$medium     : 768px;
+$large      : 1024px;
+$extra-large: 1200px;
+
+/**
+ * Margins and paddings
+ */
+$margin: 1.05rem; // 19px for <html>, so 20px = 1.05rem

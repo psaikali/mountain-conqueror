@@ -1,0 +1,66 @@
+/**
+ * Common stuff (placeholders/reusable classes)
+ */
+.screen-reader-text {
+	height: 0.0625rem;
+	width: 0.0625rem;
+	clip: rect(0.0625rem, 0.0625rem, 0.0625rem, 0.0625rem);
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+}
+  
+.screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus {
+	height: auto;
+	width: auto;
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 0.125rem 0.125rem rgba(0, 0, 0, 0.6);
+	clip: auto;
+	color: #20739A;
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 700;
+	left: 0.3125rem;
+	line-height: normal;
+	padding: 0.9375rem 1.4375rem 0.875rem;
+	text-decoration: none;
+	top: 0.3125rem;
+	z-index: 100000;
+}
+
+.clearfix, %clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+		border-collapse: collapse;
+	}
+}
+
+.inline {
+	display: inline-block;
+}
+
+.list-inline, %list-inline {
+	list-style: none;
+	margin:0;
+	padding:0;
+
+	li {
+		display: inline-block;
+	}
+}
+
+%trans_in { transition:.325s all ease-in-out; }
+%trans_in_delayed { transition:.325s all ease-in-out .125s; }
+%trans_out { transition:.175s all ease-out; }
+%pseudo { content:""; position:absolute; display:block; }
+
+.has-string-separator {
+	&:after {
+		content: ">";
+		display: inline-block;
+		margin:0 .25em;
+	}
+}
