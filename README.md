@@ -8,6 +8,11 @@ It uses Gulp for easier management (for SCSS & JS compiling and minification, br
 
 It was developed with flexibility in mind (with hooks, `function_exists()` checks and so on) to let plugin developers interact with it and give users a good base to extend the theme by creating child-themes.
 
+### Side notes
+Because the Event-related plugin is not implemented, I did not take care of Event posts reordering on the events archive page.
+Logically, the event posts would be sorted by event date (and not event post publication date), probably by hooking on `pre_get_posts` to alter the default $query and order the posts based on a meta value. 
+But that logic would probably be part of the plugin in charge of the Event back-end.
+
 ## Hooks (actions & filters)
 [A list of all hooks and their description](HOOKS.md) is available in the HOOKS.md file and will be regularly updated.
 
