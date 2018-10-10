@@ -59,6 +59,9 @@ define ( 'Carbon_Fields\URL', 'http://your.site.url.to/vendor/htmlburger/carbon-
 ```
 
 ### Changelog
+#### 1.0.3 - 2018-10-10
+IE CSS fixes.
+
 #### 1.0.2 - 2018-10-10
 Adding explanation to README on how to be able to test events with the theme, without plugin.
 
