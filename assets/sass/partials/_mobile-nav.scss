@@ -8,6 +8,9 @@ span.close-mobile-menu {
 }
 
 @include resp(large) {
+	/**
+	 * Mobile nav styling
+	 */
 	header#masthead nav.main-navigation {
 		position: fixed;
 		top:0;
@@ -67,6 +70,7 @@ span.close-mobile-menu {
 					position: relative;
 
 					button.parent-indicator {
+						display: block;
 						-webkit-appearance: none;
 						background: transparent;
 						border:none;
@@ -103,6 +107,42 @@ span.close-mobile-menu {
 			text-decoration: underline;
 		}
 	}
+
+	/**
+	 * When the mobile menu is active.
+	 */
+	header#masthead nav.main-navigation.active {
+		visibility: visible;
+		z-index: 5000;
+		opacity: 1;
+		transform: scale( 1 );
+		transition: all 0.3s ease-in-out;
+
+		> ul {
+			overflow-y: scroll;
+			-webkit-overflow-scrolling:touch;
+		}
+	}
+
+	/**
+	 * Change other elements styles when mobile nav is visible
+	 */
+	html.mobile-menu-active {
+		&, body, .site-content {
+			overflow: hidden;
+			overflow-y: hidden;
+			//pointer-events: none;
+		}
+	
+		#content {
+			filter: blur(3px);
+		}
+	
+		footer#footer {
+			transition: all 0.3s ease-in-out;
+			opacity:0;
+		}
+	}
 }
 
 /**
@@ -131,42 +171,4 @@ span.trigger-mobile-menu {
 	@include resp(large-up) {
 		display: none;
 	}		
-}
-
-/**
- * When the mobile menu is active.
- */
-@include resp(large) {
-	header#masthead nav.main-navigation.active {
-		visibility: visible;
-		z-index: 5000;
-		opacity: 1;
-		transform: scale( 1 );
-		transition: all 0.3s ease-in-out;
-
-		> ul {
-			overflow-y: scroll;
-			-webkit-overflow-scrolling:touch;
-		}
-	}
-}
-
-/**
- * Change other elements styles when mobile nav is visible
- */
-html.mobile-menu-active {
-	&, body, .site-content {
-		overflow: hidden;
-		overflow-y: hidden;
-		//pointer-events: none;
-	}
-
-	#content {
-		filter: blur(3px);
-	}
-
-	footer#footer {
-		transition: all 0.3s ease-in-out;
-		opacity:0;
-	}
 }
