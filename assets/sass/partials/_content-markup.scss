@@ -33,6 +33,16 @@
 		margin-bottom: 2rem;
 		display: table;
 
+		&.text-left-aligned {
+			text-align: left;
+		}
+
+		&.no-border {
+			tr {
+				border:none;
+			}
+		}
+
 		tr {
 			border-bottom: 1px solid $light_border;
 		}
@@ -40,7 +50,7 @@
 		td, th {
 			vertical-align: top;
 			cursor: default;
-			padding:.25em .125em;
+			padding:.275em 0;
 		}
 
 		th {

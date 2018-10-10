@@ -2,7 +2,7 @@
 	<div class="entry-event-details">
 		<!-- I am assuming that every metadata is available on the Event object
 			and that it will be the job of the plugin to return a default value if it is empty. -->
-		<table>
+		<table class="text-left-aligned no-border">
 			<tr>
 				<th>
 					<?php esc_html_e( 'Date of event:', 'inp-mc' ); ?>
@@ -11,7 +11,7 @@
 					<?php
 						printf(
 							/* Translators: From {date} to {date} */
-							esc_html_x( 'From %1$s to %2$s', 'Event date', 'inp-mc' ),
+							wp_kses_post( '<span class="from">From %1$s</span> <span class="to">to %2$s</span>', 'Event date', 'inp-mc' ),
 							$post->event->startDate()->format( get_option( 'date_format' ) ),
 							$post->event->endDate()->format( get_option( 'date_format' ) )
 						);

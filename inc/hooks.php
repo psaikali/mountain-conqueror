@@ -34,11 +34,25 @@ add_action( 'wp_head', __NAMESPACE__ . '\add_favicon_tags' );
 
 /**
  * Change the excerpt length
+ *
+ * @param int $length The current length.
+ * @return int
  */
 function excerpt_length( $length ) {
 	return 25;
 }
 add_filter( 'excerpt_length', __NAMESPACE__ . '\excerpt_length' );
+
+/**
+ * Customize the [...] on the_excerpt();
+ *
+ * @param string $more The current $more string.
+ * @return string
+ */
+function inp_mc_excerpt_more( $more ) {
+	return sprintf( ' <a class="more-link" href="%1$s">%2$s</a>', get_permalink( get_the_ID() ), esc_html__( 'Read more', 'inp-mc' ) );
+}
+add_filter( 'excerpt_more', __NAMESPACE__ . '\inp_mc_excerpt_more' );
 
 /**
  * Inject Event post data in $post to get direct access

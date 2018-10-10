@@ -1,5 +1,5 @@
 <?php use MountainConqueror\Templating; ?>
-<article <?php post_class(); ?>>
+<article <?php post_class( [ 'post' ] ); ?>>
 	<footer class="entry-footer">
 		<?php Templating\display_event_footer(); ?>
 	</footer><!-- .entry-footer -->

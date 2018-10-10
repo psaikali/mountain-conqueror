@@ -1,6 +1,25 @@
 /**
- * Stylings for buttons & links
+ * Stylings for links & buttons
  */
+a {
+	color:$blue;
+	@extend %trans_in;
+	text-decoration: none;
+
+	&:hover {
+		@extend %trans_out;
+	}
+
+	&:visited {
+		color: darken($blue, 15%);
+	}
+
+	&:hover, &:active {
+		text-decoration: underline;
+		color: $red;
+	}
+}
+
 .button {
 	border-radius: $margin;
 	background: $red;
@@ -84,5 +103,24 @@
 			border-radius:.75rem;
 			@extend %trans_in;
 		}
+	}
+}
+
+a.more-link {
+	color: $red;
+	text-transform: lowercase;
+	display: inline-block;
+	margin-left: .5em;
+
+	&:visited {
+		color: darken( $red, 15% );
+	}
+
+	&:before {
+		content: "[";
+	}
+
+	&:after {
+		content: "]";
 	}
 }

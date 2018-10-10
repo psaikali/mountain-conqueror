@@ -40,6 +40,7 @@ Based on Underscores http://underscores.me/, (C) 2012-2017 Automattic, Inc.
 @import "partials/footer";
 @import "partials/content-markup";
 @import "partials/post";
+@import "partials/event";
 
 ::-moz-selection { background: rgba($red, .625); }
 ::selection { background: rgba($red, .625); }
@@ -71,7 +72,7 @@ html {
 	}
 	
 	/**
-	 * Use the mixins below for an adaptative font size.
+	 * Uncomment/adjust the properties below for a globalized adaptative font size.
 	 */
 	// @include resp(medium-up) {
 	// 	font-size: $fs*1.075;
@@ -90,6 +91,7 @@ body {
 	font-family: $font;
 	color:$text;
 	height:100%;
+	line-height: 1.4;
 
 	&#tinymce {
 		margin: 1rem;
@@ -104,10 +106,10 @@ img {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family:$font2;
-	font-weight: 400;
+	font-weight: 500;
 	margin:.75em 0 .25em;
 	letter-spacing: -0.01em;
-	line-height: 1.2;
+	line-height: 1;
 	position: relative;
 
 	strong {
@@ -122,22 +124,3 @@ h3, .h3 { font-size: 1.55rem; }
 h4, .h4 { font-size: 1.3rem; }
 h5, .h5 { font-size: 1.1rem; }
 h6, .h6 { font-size: 1rem; }
-
-a {
-	color:$blue;
-	@extend %trans_in;
-	text-decoration: none;
-
-	&:hover {
-		@extend %trans_out;
-	}
-
-	&:visited {
-		color: darken($blue, 15%);
-	}
-
-	&:hover, &:active {
-		text-decoration: underline;
-		color: $red;
-	}
-}

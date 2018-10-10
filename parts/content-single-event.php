@@ -1,9 +1,5 @@
 <?php use MountainConqueror\Templating; ?>
 <article <?php post_class(); ?>>
-	<footer class="entry-footer">
-		<?php Templating\display_event_footer(); ?>
-	</footer><!-- .entry-footer -->
-
 	<header class="entry-header">
 		<?php
 		the_title( '<h1 class="entry-title">', '</h1>' );

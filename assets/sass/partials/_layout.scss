@@ -8,10 +8,10 @@ $content_width  : 850;
 .container {
 	max-width: $container_width*1px;
 	margin: 0 auto;
-	width: 95%;
+	width: 90%;
 
 	@include resp(medium-up) {
-		width:90%;
+		width:85%;
 	}
 
 	@include resp(large-up) {
@@ -58,5 +58,22 @@ footer#footer {
 		left: 0;
 		width: 100%;
 		z-index:100;
+	}
+}
+
+/**
+ * Some archive pages could have a div.flex-list container
+ * around article.post to display 2 posts per row
+ */
+div.flex-list {
+	@include resp(medium-up) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		
+		article.post {
+			flex-basis: 47.5%;
+		}
 	}
 }
