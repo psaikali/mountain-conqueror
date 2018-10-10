@@ -16,6 +16,12 @@ But that logic would probably be part of the plugin in charge of the Event back-
 ## Hooks (actions & filters)
 [A list of all hooks and their description](HOOKS.md) is available in the HOOKS.md file and will be regularly updated.
 
+## Testing Events with the theme
+To support and enable the management of Events via the theme (while the plugin is in development), set the `INP_MC_USE_DUMMY_EVENT_CLASS` to `true` in your wp-config.php file, as such :
+```
+define( 'INP_MC_USE_DUMMY_EVENT_CLASS', true );
+```
+
 ## Installation
 Use `git clone` to clone the repository in your /wp-content/themes/ folder.
 Then, you will need to `cd` in the theme folder and do a `composer install` to install the required library.
@@ -53,5 +59,11 @@ define ( 'Carbon_Fields\URL', 'http://your.site.url.to/vendor/htmlburger/carbon-
 ```
 
 ### Changelog
+#### 1.0.2 - 2018-10-10
+Adding explanation to README on how to be able to test events with the theme, without plugin.
+
+#### 1.0.1 - 2018-10-10
+Minor update to README file.
+
 #### 1.0.0 - 2018-10-10
 First version of the theme, following the requirements for the Inpsyde code exercise.
