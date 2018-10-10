@@ -1,0 +1,88 @@
+/**
+ * Stylings for buttons & links
+ */
+.button {
+	border-radius: $margin;
+	background: $red;
+	color:#fff;
+	//font-size: 1.4rem;
+	display: inline-block;
+	padding:.75em 4em;
+	border:2px solid $red;
+	overflow: hidden;
+	text-align: center;
+
+	&:hover, &.transparent {
+		background:#fff;
+		color:$red;
+	}
+
+	&.transparent {
+		&:hover {
+			background:$red;
+			color:#fff;
+		}
+	}
+
+	&.blue {
+		background:$blue;
+		border-color:$blue;
+
+		&:hover {
+			background: #fff;
+			color:$blue;
+		}
+	}
+
+	&.white {
+		background:#fff;
+		color:$red;
+		border-color:#fff;
+
+		&:hover {
+			background:$red;
+			border-color:$red;
+			color:#fff;
+		}
+	}
+}
+
+.link {
+	font-weight: bold;
+	color:$red;
+	position: relative;
+
+	span {
+		position: relative;
+		z-index:10;
+	}
+
+	&:before {
+		z-index:1;
+		@extend %pseudo;
+		position: absolute;
+		bottom:-1px;
+		top:100%;
+		left:0;
+		right:0;
+		background:$red;
+		border:1px solid transparent;
+		@extend %trans_in;
+	}
+
+	&:hover {
+		color:#fff;
+
+		&:before {
+			top:-.325em;
+			left:-.5em;
+			right:-.5em;
+			bottom:-.325em;
+			//background: rgba($red, .25);
+			background: transparent;
+			border:1px solid rgba($red, .5);
+			border-radius:.75rem;
+			@extend %trans_in;
+		}
+	}
+}

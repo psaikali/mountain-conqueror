@@ -1,3 +1,8 @@
+/**
+ * Stylings for the top quote before body content.
+ * Height is set in _header.scss becaused it should be
+ * synced with the logo height.
+ */
 aside.header-top-quote {
 	display: none;
 	text-align: center;

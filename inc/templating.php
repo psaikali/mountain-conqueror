@@ -117,9 +117,10 @@ if ( ! function_exists( __NAMESPACE__ . '\display_post_image' ) ) {
 		}
 
 		if ( is_null( $image_src ) ) {
-			return;
+			return $image_src;
 		}
 
+		ob_start();
 		?>
 		<figure class="entry-featured-image" style="background-image:url('<?php echo esc_url( $image_src ); ?>');">
 			<?php if ( $wrap_with_link ) { ?>
@@ -132,6 +133,7 @@ if ( ! function_exists( __NAMESPACE__ . '\display_post_image' ) ) {
 		</figure>
 
 		<?php
+		return ob_get_clean();
 	}
 }
 

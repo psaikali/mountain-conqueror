@@ -1,5 +1,8 @@
+/**
+ * Stylings for elements in page body content
+ */
 .entry-content {
-	p {
+	p, ul, ol, dl {
 		margin: 0 0 1em;
 	}
 
@@ -61,5 +64,11 @@
 
 	code {
 		background: $light_border;
+	}
+
+	hr {
+		margin: $margin*2 0;
+		border:none;
+		border-top:1px solid $border;
 	}
 }

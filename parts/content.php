@@ -1,5 +1,9 @@
-<?php use MountainConqueror\Templating; ?>
-<article <?php post_class(); ?>>
+<?php
+use MountainConqueror\Templating; 
+$post_image = Templating\display_post_image();
+$post_classes = ( ! is_null( $post_image ) && ! is_single() ) ? [ 'has-featured-image' ] : [];
+?>
+<article <?php post_class( $post_classes ); ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_single() ) {
@@ -34,7 +38,7 @@
 
 		<?php
 		if ( ! is_single() ) {
-			Templating\display_post_image();
+			echo $post_image;
 		}
 		?>
 	</div>

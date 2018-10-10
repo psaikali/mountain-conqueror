@@ -1,0 +1,72 @@
+/**
+ * Stylings for forms
+ */
+form {
+	$gray: lighten( $light_border, 15% );
+
+	input, select, textarea {
+		display: block;
+		border:none;
+		border:1px solid $light_border;
+		margin: 0 0 $margin/2 0;
+		padding: $margin;
+		width:100%;
+		border-radius: $margin/4;
+		background: $gray;
+		@extend %trans_out;
+
+		&:focus:not(.button) {
+			outline:none;
+			border-color:$blue;
+			@extend %trans_in;
+		}
+	}
+
+	input[type=submit] {
+		@extend .button;
+		cursor: pointer;
+	}
+
+	.button {
+		margin-top: $margin/2;
+
+		&:focus {
+			outline: none;		
+		}
+	}
+
+	textarea {
+		//background:lighten($border, 15%);
+		//border:none;
+	}
+
+	/**
+	 * Very basic Contact Form 7 styles
+	 */
+	&.wpcf7-form {
+		br {
+			display: none;
+		}
+		
+		span.wpcf7-form-control-wrap {
+			display: block;
+		}
+
+		div.wpcf7-response-output {
+			display: none;
+			margin:0 0 1rem 0;
+			color:rgba(#fff, .9);
+			border:none;
+			background:rgb(235, 0, 59);
+			width:100%;
+			border-radius:4px;
+			padding:.5rem 1rem;
+			font-size:1.25rem;
+			font-style: italic;
+
+			&.wpcf7-mail-sent-ok {
+				background:#23b370;
+			}
+		}
+	}
+}

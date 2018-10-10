@@ -4,19 +4,24 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
-		the_content();
+		<div class="entry-text-content">
+			<?php
+			the_content();
+			?>
+		</div>
 
-		wp_link_pages(
-			[
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'inp-mc' ),
-				'after'  => '</div>',
-			]
-		);
-		?>
-	</div><!-- .entry-content -->
+		<nav class="page-links">
+			<?php
+			wp_link_pages(
+				[
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'inp-mc' ),
+					'after'  => '</div>',
+				]
+			);
+			?>
+		</nav>
 
-	<?php if ( get_edit_post_link() ) { ?>
+		<?php if ( get_edit_post_link() ) { ?>
 		<footer class="entry-footer">
 			<?php
 				edit_post_link(
@@ -30,5 +35,6 @@
 				);
 			?>
 		</footer><!-- .entry-footer -->
-	<?php } ?>
+		<?php } ?>
+	</div><!-- .entry-content -->
 </article><!-- #post-## -->
