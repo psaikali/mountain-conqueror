@@ -16,12 +16,18 @@ Use `git clone` to clone the repository in your /wp-content/themes/ folder.
 
 ### Using composer
 You first need to add the private repo to your composer.json file:
-```composer config repositories.repo-name vcs git@bitbucket.org:pskli/mountain-conqueror.git```
+```
+composer config repositories.repo-name vcs git@bitbucket.org:pskli/mountain-conqueror.git
+```
 
 Then require the theme package with:
-```composer require pskli/mountain-conqueror```
+```
+composer require pskli/mountain-conqueror
+```
 or, if you want to test the development version:
-```composer require pskli/mountain-conqueror:dev-develop```
+```
+composer require pskli/mountain-conqueror:dev-develop
+```
 
 ### Changelog
 #### 1.0.0 - 2018-10-10
