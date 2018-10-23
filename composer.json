@@ -1,6 +1,6 @@
 {
   "name": "pskli/mountain-conqueror",
-  "description": "A WordPress theme for the Mountain Conqueror website (code exercise for Inpsyde front-end application)",
+  "description": "A WordPress theme for the Mountain Conqueror website (code exercise for a front-end job application)",
   "license": "GPL-2.0+",
   "type": "wordpress-theme",
   "authors": [
@@ -12,7 +12,7 @@
     }
   ],
   "support": {
-    "issues": "https://bitbucket.org/pskli/mountain-conqueror/issues"
+    "issues": "https://github.com/psaikali/mountain-conqueror/issues"
   },
   "require": {
     "php": ">=7.0",

@@ -1,4 +1,9 @@
-# Inpsyde Mountain Conqueror theme
+# Mountain Conqueror WordPress Theme
+
+> **Disclaimer:** this WordPress theme was created for a job application, as a front-end "real-world" exercise. It is not intended to be used in production, as some core features were voluntarily ignored. 
+It can however be used as a _starter_ theme.
+
+#### [A demo site can be seen here to see this theme in action](http://wp.mosaika.pro/inpsyde-exercise/).
 
 ## Technical info
 This theme does not use any starter theme but was created from the ground up.
@@ -69,4 +74,4 @@ Adding explanation to README on how to be able to test events with the theme, wi
 Minor update to README file.
 
 #### 1.0.0 - 2018-10-10
-First version of the theme, following the requirements for the Inpsyde code exercise.
+First version of the theme, following the requirements for the Pskli code exercise.
