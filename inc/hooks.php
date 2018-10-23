@@ -61,7 +61,7 @@ add_filter( 'excerpt_more', __NAMESPACE__ . '\inp_mc_excerpt_more' );
  */
 function inject_event_post_data( $post ) {
 	if ( apply_filters( 'inp_mc_enable_injection_event_data_in_post', true ) && ! is_admin() && 'event' === $post->post_type ) {
-		$post->event = \Inpsyde\Events\Model\Event::fromPost( $post );
+		$post->event = \Pskli\Events\Model\Event::fromPost( $post );
 	}
 }
 add_action( 'the_post', __NAMESPACE__ . '\inject_event_post_data' );
@@ -88,7 +88,7 @@ add_filter( 'post_class', __NAMESPACE__ . '\custom_post_classes' );
  * @param WP_Post $post The current post being looped.
  */
 function is_a_valid_event( $valid, $post ) {
-	if ( isset( $post->event ) && is_a( $post->event, 'Inpsyde\Events\Model\Event' ) ) {
+	if ( isset( $post->event ) && is_a( $post->event, 'Pskli\Events\Model\Event' ) ) {
 		$valid = true;
 	}
 
